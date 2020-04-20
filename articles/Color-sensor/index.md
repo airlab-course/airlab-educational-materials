@@ -10,7 +10,7 @@
 <a name="connection-example"></a>
 ## Пример подключения к Arduino
 
-![](images/connection-color-sensor.png)
+![](images/connection.png)
 
 <a name="calibrate"></a>
 ## Калибровка
@@ -142,7 +142,7 @@ void printAssignment(const char* variableName, const char* color, int32_t value)
 
  К датчику подносят образец одного из трёх цветов — красного, зелёного или синего. Образец освещается светодиодами на плате вокруг датчика. Датчик имеет преобразователь тока в частоту, он преобразует показания фотодиодов в квадратную волну с частотой, пропорциональной интенсивности света выбранного цвета. Эта частота затем считывается Arduino.
 
-![](images/how-work-color-sensor.jpg)
+![](images/how-work.jpg)
 
 <a name="links"></a>
 ## Ссылки

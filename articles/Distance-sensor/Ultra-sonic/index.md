@@ -13,9 +13,9 @@
 <a name="connection-example"></a>
 ## Примеры подключения к Arduino
 
-![](images/connection-example.jpg) 
+![](images/connection.jpg) 
 
-![](images/connection-example-with-shield.jpg)
+![](images/connection-with-shield.jpg)
 
 <a name="work-example"></a>
 ## Пример работы с датчиком в Arduino
@@ -124,7 +124,7 @@ void loop() {
 
 Расстояние, на котором обнаруживаются объекты – до 8 метров, при условии, что у них твердая и гладкая поверхность.  Если они изготовлены из мягкого, пористого материала, поглощающего звук – расстояние сокращается.
 
-![](images/howwork-ultrasonic.jpg)
+![](images/how-work.jpg)
 
 <a name="distance-measurement-accuracy"></a>
 ## Точность измерения расстояния

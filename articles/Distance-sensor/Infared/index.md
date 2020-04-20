@@ -11,7 +11,7 @@
 <a name="connection-example"></a>
 ## Пример подключения к Arduino
 
-![](images/connection-infrared-distance-sensor.jpg) 
+![](images/connection.jpg) 
 
 <a name="work-example"></a>
 ## Пример работы с датчиком в Arduino
