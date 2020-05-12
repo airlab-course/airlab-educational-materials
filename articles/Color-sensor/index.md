@@ -17,6 +17,11 @@
 
 Калибровка должна выполняться при хорошем освещении и на одинаковом расстоянии до предмета. При изменении освещенности в помещении или расстояния до предмета — все настройки могут сбиться.
 
+Схема работы со скетчем калибровки:
+- Загрузить код на Ардуино и запустить
+- Поднести к датчику черную карточку и нажать кнопку
+- Так же поднести белую
+- Результат работы программы использовать в других скетчах
 Скетч для калибровки: 
 
 ```c++
@@ -133,6 +138,63 @@ void printAssignment(const char* variableName, const char* color, int32_t value)
 }
 ```
 
+
+<a name="using"></a>
+## Пример работы
+
+```c++
+#include <Arduino.h>
+#include <MD_TCS230.h>
+
+#define  S0_OUT  2
+#define  S1_OUT  3
+#define  S2_OUT  4
+#define  S3_OUT  5
+MD_TCS230 ColorSensor(S2_OUT, S3_OUT, S0_OUT, S1_OUT);
+
+#define R_OUT 6
+#define G_OUT 7
+#define B_OUT 8
+
+void setup()
+{
+    Serial.begin(115200);
+    Serial.println("Started!");
+    
+    /*
+    Сюда помещается результат работы скетча с калибровкой
+    */
+
+    ColorSensor.begin();
+    ColorSensor.setDarkCal(&blackCalibration);
+    ColorSensor.setWhiteCal(&whiteCalibration);
+
+    pinMode(R_OUT, OUTPUT);
+    pinMode(G_OUT, OUTPUT);
+    pinMode(B_OUT, OUTPUT);
+}
+
+void loop() 
+{
+    colorData rgb;
+    ColorSensor.read();
+    while (!ColorSensor.available())
+        ;
+    ColorSensor.getRGB(&rgb);
+    print_rgb(rgb);
+    delay(1000);
+}
+
+void print_rgb(colorData rgb)
+{
+	Serial.print(rgb.value[TCS230_RGB_R]);
+	Serial.print(" ");
+	Serial.print(rgb.value[TCS230_RGB_G]);
+	Serial.print(" ");
+	Serial.print(rgb.value[TCS230_RGB_B]);
+	Serial.println();
+}
+```
 
 
 <a name="howwork"></a>
